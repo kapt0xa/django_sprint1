@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-def about():
-    return
+def about(request):
+    return render(request, 'pages/about.html')
 
-def rules():
-    return
+def rules(request):
+    return render(request, 'pages/request.html')
