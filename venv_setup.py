@@ -1,4 +1,5 @@
-#!!!WARNING!!! the script is written by AI and is not checked.
+# !!!WARNING!!! the script is written by AI and is not checked. i tested once, it seems to work properly.
+# the script installs libs from requirements.txt
 
 import subprocess
 import sys
