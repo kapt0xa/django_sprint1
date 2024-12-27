@@ -45,7 +45,7 @@ posts = [
 ]
 
 def index(request):
-    return render(request, 'blog/index.html')
+    return render(request, 'blog/index.html', {'posts' : posts})
 
 def post_detail(request):
     return render(request, 'blog/post_detail.html')
