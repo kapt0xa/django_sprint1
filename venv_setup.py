@@ -31,3 +31,7 @@ for lib in libraries:
         print(f"Successfully installed {lib}.\n")
     else:
         print(f"Failed to install {lib}. Error:\n{result.stderr}\n")
+
+# copy this to run server:
+# python blogicum/manage.py runserver
+# python blogicum\manage.py runserver

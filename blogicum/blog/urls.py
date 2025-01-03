@@ -1,6 +1,8 @@
 from django.urls import path
 from blog import views
 
+app_name = 'blog'
+
 urlpatterns = [
     path('index/', views.index, name='index'),
     path('index/<str:category>', views.index, name='index_filtred'),
