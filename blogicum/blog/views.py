@@ -55,4 +55,5 @@ def category_posts(request, category):
     for post in posts:
         if post['category'] == category:
             filtred.append(post)
-    return render(request, 'blog/category.html', {'posts': filtred})
+    return render(request, 'blog/category.html',
+                   {'posts': filtred, 'category': category})
