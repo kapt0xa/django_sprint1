@@ -3,7 +3,7 @@
 {% block title %} <h1>Лента записей</h1> {% endblock %}
 
 {% block content %}
-{% for post in posts %}
+{% for post in posts|slice:"::-1" %}
 <hr>
 <article>
   <ul>

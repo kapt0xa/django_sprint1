@@ -5,16 +5,16 @@
 {% block content %}
 <ul>
   <li>
-    Место: {{ location }}              
+    Место: {{ post.location }}              
   </li>
   <li>
-    Дата: {{ date }}
+    Дата: {{ post.date }}
   </li>
   <li>
-    Категория: <a href="{% url 'blog:category_posts' category %}">{{ category }}</a>
+    Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
   </li>
 </ul>
 <p>
-  {{ text|linebreaksbr }}
+  {{ post.text|linebreaksbr }}
 </p> 
 {% endblock %}    
