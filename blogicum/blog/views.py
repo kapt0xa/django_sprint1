@@ -44,19 +44,15 @@ posts = [
     },
 ]
 
-def index(request, category=None):
-    if category is None:
-        return render(request, 'blog/index.html', {'posts': posts})
-
-    filtered = []
-    for element in posts:
-        if element['category'] == category:
-            filtered.append(element)
-
-    return render(request, 'blog/index.html', {'posts': filtered})
+def index(request):
+    return render(request, 'blog/index.html', {'posts': posts})
 
 def post_detail(request, id: int):
-    return render(request, 'blog/post_detail.html', posts[id])
+    return render(request, 'blog/detail.html', posts[id])
 
-def category_posts(request):
-    return render(request, 'blog/category_posts.html')
+def category_posts(request, category):
+    filtred = []
+    for post in posts:
+        if post['category'] == category:
+            filtred.append(post)
+    return render(request, 'blog/category.html', {'posts': filtred})

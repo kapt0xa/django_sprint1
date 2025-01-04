@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Лента записей</title>
+    <title>Публикации в категории personal</title>
   </head>
   <body>	   
     <header>
@@ -20,7 +20,7 @@
           </a>        
           <ul class="nav  nav-pills">
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">
+              <a class="nav-link" href="index.html">
                 Лента записей
               </a>
             </li>
@@ -40,8 +40,7 @@
     </header>
     <main>
       <div class="container py-5">
-        <h1>Лента записей</h1>                        
-        <!-- Перебираем в цикле все посты -->
+        <h1>Публикации в категории personal</h1>
         {% for post in posts %}
         <hr>
         <article>
@@ -53,7 +52,7 @@
               Дата: {{ post.date }}
             </li>
             <li>
-              Категория: <a href="{% url 'blog:index_filtred' post.category %}">{{ post.category }}</a>
+              Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
             </li>
           </ul>          
           <p>
@@ -61,7 +60,7 @@
           </p>
           <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
         </article>  
-        {% endfor %}              
+        {% endfor %}   
       </div>
     </main>
     <footer class="border-top text-center py-3">
