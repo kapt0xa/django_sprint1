@@ -5,9 +5,9 @@ app_name = "pages"
 
 urlpatterns = [
     path("rules/",
-         TemplateView.as_view(template_name="pages/about.html"),
+         TemplateView.as_view(template_name="pages/rules.html"),
          name="rules"),
     path("about/",
-         TemplateView.as_view(template_name="pages/rules.html"),
+         TemplateView.as_view(template_name="pages/about.html"),
          name="about"),
 ]
