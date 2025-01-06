@@ -1,6 +1,17 @@
 from django.shortcuts import render
+from django.http import Http404
 
-posts = [
+"""Contains posts. 
+organised as dictionary
+key is id
+inside it listed:
+id (the same as key)
+location (str format)
+date (str format)
+category (str format, english language)
+text (str format)"""
+posts = {
+    0:
     {
         "id": 0,
         "location": "Остров отчаянья",
@@ -13,6 +24,7 @@ posts = [
                 полумёртвым на берег этого проклятого острова,
                 который назвал островом Отчаяния.""",
     },
+    1:
     {
         "id": 1,
         "location": "Остров отчаянья",
@@ -29,6 +41,7 @@ posts = [
                 построить баркас, на котором и выбрались бы из этого
                 гиблого места.""",
     },
+    2:
     {
         "id": 2,
         "location": "Остров отчаянья",
@@ -41,22 +54,27 @@ posts = [
                 Весь этот день я хлопотал  около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.""",
     },
-]
+}
 
 
 def index(request):
-    return render(request, "blog/index.html", {"posts": posts})
+    return render(request, "blog/index.html", 
+                  {"posts": reversed(posts.items())})
 
 
-def post_detail(request, id: int):
-    return render(request, "blog/detail.html", posts[id])
+def post_detail(request, post_id: int):
+    if post_id not in posts:
+        raise Http404(f"post with id {id} does not exist")
+    return render(request, "blog/detail.html",
+                  {"post": posts[post_id], "post_id": post_id})
 
 
 def category_posts(request, category):
     filtred = []
-    for post in posts:
+    for id, post in posts.items():
         if post["category"] == category:
-            filtred.append(post)
+            filtred.append((id, post))
     return render(
-        request, "blog/category.html", {"posts": filtred, "category": category}
+        request, "blog/category.html",
+        {"posts": reversed(filtred), "category": category}
     )
