@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 
-"""Contains posts. 
+"""Contains posts.
 organised as dictionary
 key is id
 inside it listed:
@@ -58,7 +58,7 @@ posts = {
 
 
 def index(request):
-    return render(request, "blog/index.html", 
+    return render(request, "blog/index.html",
                   {"posts": reversed(posts.items())})
 
 
