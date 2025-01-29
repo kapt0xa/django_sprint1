@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
             }
 
             std::cout << comand << " ==vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv=="s << std::endl;
-            system(comand.c_str());
+            system(comand.c_str()); // vvv the rest of code might be unreachable due to CTRL-BREAK exit of django vvv
             std::cout << comand << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
 
         if(wait)
@@ -149,7 +149,7 @@ int main(int argc, char *argv[])
         auto&& comand = comand_base + " runserver";
 
         std::cout << comand << " ==vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv=="s << std::endl;
-        system(comand.c_str());
+        system(comand.c_str()); // vvv the rest of code might be unreachable due to CTRL-BREAK exit of django vvv
         std::cout << comand << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
     }
 
