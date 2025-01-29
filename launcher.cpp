@@ -108,17 +108,17 @@ int main(int argc, char *argv[])
         if (commands["makemigrations"s].count(current_word))
         {
             auto&& comand = comand_base + " makemigrations";
-            std::cout << comand << "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"s << std::endl;
+            std::cout << comand << " ==vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv=="s << std::endl;
             system(comand.c_str());
-            std::cout << comand << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"s << std::endl;
+            std::cout << comand << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
             continue;
         }
         if (commands["migrate"s].count(current_word))
         {
             auto&& comand = comand_base + " migrate";
-            std::cout << comand << "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"s << std::endl;
+            std::cout << comand << " ==vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv=="s << std::endl;
             system(comand.c_str());
-            std::cout << comand << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"s << std::endl;
+            std::cout << comand << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
             continue;
         }
         if (commands["pass_all_to_manage_py"s].count(current_word))
@@ -130,9 +130,9 @@ int main(int argc, char *argv[])
                 comand += " "s + std::string(argv[j]);
             }
 
-            std::cout << comand << "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"s << std::endl;
+            std::cout << comand << " ==vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv=="s << std::endl;
             system(comand.c_str());
-            std::cout << comand << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"s << std::endl;
+            std::cout << comand << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
 
         if(wait)
         {
@@ -148,9 +148,9 @@ int main(int argc, char *argv[])
     {
         auto&& comand = comand_base + " runserver";
 
-        std::cout << comand << "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"s << std::endl;
+        std::cout << comand << " ==vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv=="s << std::endl;
         system(comand.c_str());
-        std::cout << comand << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"s << std::endl;
+        std::cout << comand << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
     }
 
     if(wait)
