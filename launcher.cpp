@@ -48,10 +48,6 @@ bool validate_commands(std::vector<std::string> commands_arr)
         {
             return false;
         }
-        if(commands_arr.size() != 1 && commands["help"s].count(command))
-        {
-            return false;
-        }
     }
     return true;
 }
@@ -74,6 +70,8 @@ int main(int argc, char *argv[])
         std::cout << programm_name << " "s << *commands["-p"s].begin() << " "s << "createsuperuser"s << std::endl;
         std::cout << "For more information use:" << std::endl;
         std::cout << programm_name << " "s << *commands["-h"s].begin() << std::endl;
+        std::cout << "Press any key to continue..." << std::endl;
+        std::cin.get();
         return 1;
     }
 
@@ -94,6 +92,7 @@ int main(int argc, char *argv[])
         }
         if (commands["help"s].count(current_word))
         {
+            std::cout << "help"s << " ==vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv=="s << std::endl;
             for(auto&& [command_name, aliases] : commands)
             {
                 std::cout << command_name << " ";
@@ -103,7 +102,8 @@ int main(int argc, char *argv[])
                 }
                 std::cout << std::endl;
             }
-            return 0;
+            std::cout << "help"s << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
+            continue;
         }
         if (commands["makemigrations"s].count(current_word))
         {
