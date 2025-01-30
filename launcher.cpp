@@ -13,7 +13,7 @@ std::map<std::string, std::set<std::string>> commands = {
 
     {"no_run"s, {"stop"s, "sp"s}},
     {"help"s, {"--help"s, "-h"s, "h"s, "help"s}},
-    {"wait", {"wait"s, "wt"s}},
+    {"not_wait", {"not_wait"s, "nw"s}},
 
     {"pass_all_to_manage_py", {"-p"s}},
 };
@@ -55,7 +55,7 @@ bool validate_commands(std::vector<std::string> commands_arr)
 int main(int argc, char *argv[])
 {
 
-    bool wait = false;
+    bool not_wait = false;
     bool no_run = false;
 
     std::vector<std::string> custom_commands;
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
         if (commands["wait"s].count(current_word))
         {
             std::cout << "Server will wait for input in the end" << std::endl;
-            wait = true;
+            not_wait = true;
             continue;
         }
         if (commands["help"s].count(current_word))
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
             system(comand.c_str()); // vvv the rest of code might be unreachable due to CTRL-BREAK exit of django vvv
             std::cout << comand << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
 
-        if(wait)
+        if(!not_wait)
         {
             std::cout << "Press any key to continue..." << std::endl;
             std::cin.get();
@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
         std::cout << comand << " ==^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^=="s << std::endl;
     }
 
-    if(wait)
+    if(!not_wait)
     {
         std::cout << "Press any key to continue..." << std::endl;
         std::cin.get();
