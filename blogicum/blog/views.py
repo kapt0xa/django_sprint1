@@ -41,8 +41,8 @@ class Post(models.Model):
     pub_date = models.DateTimeField(blank=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                null=True)
-    location = models.ForeignKey(Location, on_delete=models.SET_NULL)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL)
+    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     is_published = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
